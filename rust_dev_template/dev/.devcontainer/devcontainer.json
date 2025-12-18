@@ -1,0 +1,8 @@
+{
+  "name": "Rust + DB Dev",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "shutdownAction": "stopCompose",
+  "remoteUser": "root",
+  "postCreateCommand": "cargo build --workspace"
+}

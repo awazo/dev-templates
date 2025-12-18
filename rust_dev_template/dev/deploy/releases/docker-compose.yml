@@ -1,0 +1,50 @@
+services:
+  app:
+    image: myapp:latest
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    container_name: myapp
+    environment:
+      APP_ENV: prod
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - myappnet
+    restart: unless-stopped
+    stop_signal: SIGTERM
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  db:
+    image: postgres:18
+    container_name: myapp_db
+    user: "${UID}:${GID}"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ../../db/data:/var/lib/postgresql/data
+      - ../../db/init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - myappnet
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      retries: 3
+
+networks:
+  myappnet:
+

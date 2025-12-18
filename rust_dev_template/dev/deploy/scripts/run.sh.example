@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_NAME="${PROJECT_NAME:-myapp}"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+(
+  cd "${PROJECT_ROOT}/releases/current/"
+
+  echo "Stopping previous container (if any)..."
+  docker compose down --volumes 2>/dev/null || true
+
+  echo "Starting container..."
+  docker compose up -d \
+  -e DATABASE_URL="${DATABASE_URL:-}" \
+  -e API_SECRET_KEY="${API_SECRET_KEY:-}"
+)
+
+echo "Finished."
+

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ARCHIVE="./bootstrap.tar.gz"
+tar xzf "$ARCHIVE"
+mkdir -p ./deploy/releases/
+

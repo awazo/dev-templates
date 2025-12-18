@@ -1,0 +1,19 @@
+# Rust
+/target
+**/*.rs.bk
+
+# DB backups
+/backups
+/backups/*.sql
+
+# Env files (secrets)
+.env
+.devcontainer/.env
+
+# Editor folders
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
