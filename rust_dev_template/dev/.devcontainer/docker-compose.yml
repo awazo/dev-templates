@@ -6,6 +6,8 @@ services:
     volumes:
       - ..:/workspace
     working_dir: /workspace
+    command: ["tail", "-f", "/dev/null"]
+    tty: true
     environment:
       DB_USER: ${DB_USER:-postgres}
       DB_PASSWORD: ${DB_PASSWORD:-postgres}
