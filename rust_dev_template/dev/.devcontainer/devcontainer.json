@@ -2,7 +2,15 @@
   "name": "Rust + DB Dev",
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
+  "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "remoteUser": "root",
-  "postCreateCommand": "cargo build --workspace"
+  "postCreateCommand": "cargo build --workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer"
+      ]
+    }
+  }
 }
