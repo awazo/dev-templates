@@ -7,8 +7,9 @@
 /backups/*.sql
 
 # Env files (secrets)
-.env
-.devcontainer/.env
+.env*
+!.env.example
+.env*/
 
 # Editor folders
 .vscode/
