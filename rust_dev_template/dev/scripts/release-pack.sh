@@ -2,13 +2,13 @@
 set -euo pipefail
 
 # Usage:
-#   ./release.sh [app_name]
+#   ./release-pack.sh [app_name]
 
 APP_NAME="${1:-${APP_NAME:-myapp}}"
 VERSION="$(date +"%Y-%m-%d_%H%M%S")"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 (
   cd "${PROJECT_ROOT}"
 

@@ -10,7 +10,7 @@ ARCHIVE="$PROJECT_ROOT/bootstrap.tar.gz"
   cd "${PROJECT_ROOT}"
 
   echo "Creating bootstrap package: $ARCHIVE"
-  tar czf "$ARCHIVE" -C "$PROJECT_ROOT" deploy/db deploy/scripts
+  tar czf "$ARCHIVE" -C "${PROJECT_ROOT}/deploy" db/ scripts/
 )
 
 echo "Done."

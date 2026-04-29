@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Usage:
-#   ./restore.sh <backup_file> [db_container_name]
+#   ./db-restore.sh <backup_file> [db_container_name]
 
-BACKUP_FILE="$(pwd)/${1:-./backup.sql}"
+BACKUP_FILE="$(pwd)/${1:-./../backups/db_backup.sql}"
 SERVICE_NAME="${2:-${SERVICE_NAME:-myapp_db}}"
 DB_USER="${DB_USER:-postgres}"
 

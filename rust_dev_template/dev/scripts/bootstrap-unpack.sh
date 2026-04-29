@@ -3,5 +3,5 @@ set -euo pipefail
 
 ARCHIVE="./bootstrap.tar.gz"
 tar xzf "$ARCHIVE"
-mkdir -p ./deploy/releases/
+mkdir -p ./releases/
 

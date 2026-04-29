@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Usage:
-#   ./backup.sh [output_dir] [db_container_name]
+#   ./db-backup.sh [output_dir] [db_container_name]
 
 SERVICE_NAME="${2:-${SERVICE_NAME:-myapp_db}}"
 DB_USER="${DB_USER:-postgres}"
