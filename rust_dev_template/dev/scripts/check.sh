@@ -13,7 +13,7 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
   cargo clippy --workspace --all-targets --all-features -- -D warnings
 
   echo "==> Running tests..."
-  cargo test --workspace
+  APP_ENV=test cargo test --workspace
 )
 echo "==> All checks passed."
 
