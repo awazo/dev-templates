@@ -1,7 +1,7 @@
 {
   "name": "Rust + DB Dev",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "dev",
+  "service": "app",
   "workspaceFolder": "/workspace",
   "overrideCommand": false,
   "shutdownAction": "stopCompose",
