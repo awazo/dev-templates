@@ -42,7 +42,8 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 5s
-      retries: 3
+      timeout: 5s
+      retries: 10
 
 networks:
   myappnet:
