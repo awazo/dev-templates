@@ -5,13 +5,9 @@ services:
       context: .
       dockerfile: docker/app/Dockerfile
     container_name: myapp
+    env_file: .env
     environment:
       APP_ENV: prod
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: ${DB_NAME}
     depends_on:
       db:
         condition: service_healthy
@@ -23,13 +19,14 @@ services:
     logging:
       driver: json-file
       options:
-        max-size: "10m"
+        max-size: "50m"
         max-file: "10"
 
   db:
     image: postgres:18
     container_name: myapp_db
     user: "${UID}:${GID}"
+    env_file: .env
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
