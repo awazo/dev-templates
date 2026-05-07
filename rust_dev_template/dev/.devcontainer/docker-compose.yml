@@ -8,7 +8,7 @@ services:
     working_dir: /workspace
     command: ["tail", "-f", "/dev/null"]
     tty: true
-    env_file: .env.dev
+    env_file: ../.env.dev
     environment:
       APP_ENV: dev
     depends_on:
@@ -17,7 +17,7 @@ services:
 
   db:
     image: postgres:18
-    env_file: .env.dev
+    env_file: ../.env.dev
     environment:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
