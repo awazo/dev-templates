@@ -1,8 +1,9 @@
-# Loki + Grafana
+# logserver_template
+## Loki + Grafana
 
-## Loki
+### Loki
 * port: 3100
 
-## Grafana
+### Grafana
 * port: 3000
 

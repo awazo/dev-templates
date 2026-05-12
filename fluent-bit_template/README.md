@@ -1,3 +1,4 @@
+# fluent-bit_template
 edit file fluent-bit.conf:
 ```
 [OUTPUT]
