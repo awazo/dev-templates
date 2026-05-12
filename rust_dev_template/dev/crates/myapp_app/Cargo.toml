@@ -1,0 +1,23 @@
+[package]
+name = "myapp_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+myapp_db = { path = "../myapp_db" }
+myapp_web = { path = "../myapp_web" }
+
+chrono.workspace = true
+serde.workspace = true
+sqlx.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+
+axum = "0.8"
+axum-governor = "2"
+dotenvy = "0.15"
+serde_json = "1"
+tower = { version = "0.5", features = [ "full" ] }
+tower-http = { version = "0.6", features = [ "trace", "timeout", "request-id", "util" ] }
+tracing-subscriber = { version = "0.3", features = [ "fmt", "env-filter", "json", "time" ] }
