@@ -2,14 +2,14 @@
 set -euo pipefail
 
 # Usage:
-#   ./db-restore.sh <backup_file> [db_container_name]
+#   ./db-restore.sh <backup_file> [db_service_name]
 
 BACKUP_FILE="$(pwd)/${1:-./../backups/db_backup.sql}"
 SERVICE_NAME="${2:-${SERVICE_NAME:-myapp_db}}"
 DB_USER="${DB_USER:-postgres}"
 
 if [ -z "${BACKUP_FILE}" ]; then
-  echo "Usage: $0 <backup_file> [db_container_name]"
+  echo "Usage: $0 <backup_file> [db_service_name]"
   exit 1
 fi
 

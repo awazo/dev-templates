@@ -7,10 +7,9 @@
 
 ## application (on docker) templates
 ### fluent-bit_template
-* use at application server
+* use on application server (run with application container)
 * log corrected from docker (json-file)
 * send log to logserver
 ### logserver_template
-* use at standalone server
+* use on standalone server
 * loki + grafana
-
