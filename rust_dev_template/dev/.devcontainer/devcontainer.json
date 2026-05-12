@@ -6,7 +6,7 @@
   "overrideCommand": false,
   "shutdownAction": "stopCompose",
   "remoteUser": "root",
-  "postCreateCommand": "cargo build --workspace",
+  "postCreateCommand": "chmod g+s /workspace && cargo build --workspace",
   "customizations": {
     "vscode": {
       "extensions": [
